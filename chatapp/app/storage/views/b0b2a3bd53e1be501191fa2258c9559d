@@ -1,0 +1,52 @@
+<?php $__env->startSection('content'); ?>
+	  <div id="login-page">
+	  	<div class="container">
+          <?php echo Form::open(array('url' => 'sessions', 'files' => true, 'class' => 'form-login')); ?>
+
+		        <h2 class="form-login-heading">CHATTIES</h2>
+		        <div class="login-wrap">
+
+
+                   <?php echo Form::text('email', null, array('class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Email', 'required' => 'required' )); ?>
+
+		            <br>
+                   <?php echo Form::password('password', array('class' => 'form-control',  'autocomplete' => 'off', 'placeholder' => 'Passord', 'required' => 'required')); ?>
+
+                   <br>  <br>
+
+		            <?php echo Form::submit('Login', array('class' => 'btn btn-theme btn-block')); ?>
+
+
+                <?php echo Form::close(); ?>
+
+
+
+		            <hr>
+
+		            <div class="registration">
+		                Don't have an account yet?<br/>
+		                <a class="" href="<?php echo URL::to('login'); ?>#register" data-toggle="modal">
+		                    Create an account
+		                </a>
+		            </div>
+
+		              <div class="text-center">
+                          <?php if(Session::has('message')): ?>
+                              <p class="alert"><?php echo Session::get('message'); ?></p>
+                          <?php endif; ?>
+                      </div>
+
+
+		        </div
+
+
+	  	</div>
+	  </div>
+
+
+<?php echo $__env->make('auth.register', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

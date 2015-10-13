@@ -1,0 +1,27 @@
+<?php $__env->startSection('content'); ?>
+
+            <section id="main-content">
+            <section class="wrapper">
+            <div id="hide"><span id="channel-name"><?php echo $hashedChannel; ?></span></div>
+          	<h3><i class="fa fa-comments"></i> <?php echo $user->nickname; ?></h3>
+          	<div class="row mt msgContainer"  id="message-block">
+          	<?php foreach($messages as $key => $message): ?>
+          	<p> <span> (<?php echo $message->created_at; ?>) <?php echo $message->user->nickname; ?>:</span> <?php echo $message->body; ?></p>
+          	<?php endforeach; ?>
+          	</div>
+            </section>
+
+            <form role="form" id="message-form">
+            <div class="InputPanel">
+            <input class="form-control" id="send" name="message" type="text" placeholder="Write your text here" >
+            <?php echo Form::hidden('channel', 0); ?>
+
+            <?php echo Form::hidden('to', $user->id); ?>
+
+            </div>
+            </form>
+            </section>
+
+      <?php echo $__env->make('assets.pusher', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

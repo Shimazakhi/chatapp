@@ -1,0 +1,20 @@
+<?php $__env->startSection('content'); ?>
+
+    	<div class="container-fluid">
+    		<div class="row-fluid">
+    			<div class="span12" id="chat-app">
+    				<h1>
+    					BrainSocket.js Example Chat App
+    				</h1>
+    				<form class="form-inline">
+    					<input type="text" class="input" id="chat-message" placeholder="Type a message and hit enter.">
+    				</form>
+                    <div id="chat-log">
+
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

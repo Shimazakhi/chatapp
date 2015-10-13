@@ -1,0 +1,39 @@
+  <aside>
+          <div id="sidebar"  class="nav-collapse ">
+
+             <div class="avatar">
+             <p class="centered"><a href="<?php echo URL::to('show-profile/2'); ?>"><img src="<?php echo URL::to('assets/img/ui-zac.jpg"'); ?>" class="img-circle" width="60"></a></p>
+             <h5 class="centered"><?php echo Auth::user()->firstname;; ?> <?php echo Auth::user()->lastname;; ?></h5>
+             <h6 class="centered">Chatties member</h6>
+            </div>
+              <ul class="sidebar-menu" id="nav-accordion">
+
+                  <li class="mt">
+
+                  <li class="sub-menu">
+                      <a>
+                          <i class="fa fa-comments"></i>
+                          <span>Channels</span>
+                      </a>
+                      <ul class="sub" id="channels">
+                           <?php foreach($channels as $key => $channel): ?>
+                           <li><a href="<?php echo URL::to('/'.$channel->name); ?>"><?php echo $channel->name; ?></a></li>
+                           <?php endforeach; ?>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a>
+                          <i class="fa fa-users"></i>
+                          <span>Friends</span>
+                      </a>
+                      <ul class="sub" id="users">
+                             <?php foreach($users as $key => $user): ?>
+                                   <li><a href="<?php echo URL::to('/private/'.$user->nickname); ?>"><?php echo $user->nickname; ?></a></li>
+                             <?php endforeach; ?>
+                      </ul>
+                  </li>
+              </ul>
+
+          </div>
+      </aside>
