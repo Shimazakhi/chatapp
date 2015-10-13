@@ -1,0 +1,110 @@
+html, body {
+    height:  100%;
+    margin:  0 auto;
+    padding: 0 auto;
+    overflow-y:hidden;
+}
+.modal-body label {
+    margin-top:7px;
+}
+
+.control-group {
+
+    margin-top:5px;
+}
+.form-register-heading {
+    font-weight: 900;
+    color: #68dff0;
+
+}
+
+hr {
+    width: 75%;
+}
+
+i {
+    margin-right:3px;
+}
+
+
+.tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index:-555;
+    left: 0;
+    right: 0;
+    background: rgba(66, 74, 93, 0.9) url("http://priarit.com/public/img/pattern.png") repeat scroll 0 0;
+    /*  background: rgba(30,30,30,0);
+      -moz-transition: background .3s linear;
+      -webkit-transition: background .3s linear;
+      -o-transition: background .3s linear; */
+    transition: background .3s linear;
+}
+
+
+#loginVideo {
+    position: absolute;
+    z-index: -999999999999;
+    width:100%;
+    height:120%;
+    background-color: black;
+
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.login-page {
+    position: absolute;
+    z-index:10;
+}
+
+.wrapper {
+    margin-top:-60px;
+    padding-top:120px;
+    min-height: 100%;
+    height:1px;
+}
+.msgContainer {
+    width:100%;
+    max-height:85%;
+    padding-top:5px;
+    padding-left:25px;
+    padding-right:25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#msgBlock {
+
+}
+
+#msgBlock span {
+    font-weight:bold;
+}
+
+.InputPanel {
+    padding-left:25px;
+    padding-right:25px;
+    width:100%;
+}
+
+.InputPanel input {
+
+}
+
+.system {
+    color:indianred;
+}
+.avatar {
+    padding-top:100px;
+}
+a:hover { cursor:pointer; }
+
+#hide { display:none;
+}

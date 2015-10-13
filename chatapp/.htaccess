@@ -1,0 +1,30 @@
+Options +FollowSymLinks
+DirectoryIndex public/index.php
+
+
+SetEnvIfNoCase Authorization "Basic ([a-z0-9=]+)" REMOTE_AUTHORIZATION=$1
+#<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ $1 [L,R=301]
+	
+	RewriteRule ^dostavka.html$ /index.php [R=301,L,QSA]
+	RewriteRule ^garantya.html$ /index.php [R=301,L,QSA]
+	RewriteRule ^negarantya.html$ /index.php [R=301,L,QSA]
+	RewriteRule ^years.html$ /index.php [R=301,L,QSA]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule (.+) public/$1 [L]
+
+
+    RewriteCond %{HTTP:Authorization} ^(.+)$
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+#</IfModule>
