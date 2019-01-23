@@ -11,6 +11,8 @@ return array(
 	| realtime bi-directional functionality via WebSockets to web and mobile 
 	| apps, or any other Internet connected device.
 	|
+	| NOTE: The options debug, host, port and timeout is deprecated.
+	| Please use this values inside the options field.
 	*/
 
 	/**
@@ -19,13 +21,20 @@ return array(
 	'app_id' => '', 
 
 	/**
-	 * App key
+	 * App Key
 	 */
 	'key' => '',
 
 	/**
 	 * App Secret
 	 */
-	'secret' => ''	
+	'secret' => '',
 
+	/**
+	 * App Options
+	 * Avaliables: scheme, host, port, timeout, encrypted
+	 */
+	'options' => array(
+		'encrypted' => true
+	),
 );

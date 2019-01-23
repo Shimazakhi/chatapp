@@ -1,9 +1,22 @@
 <?php
 	class CommandsController extends BaseController {
-		protected $commands;
-		protected $channel;
+        /**
+         * Available commands
+         *
+         * @var array
+         */
+        protected $commands;
 
-		public function __construct()
+        /**
+         * Current channel
+         * @var mixed
+         */
+        protected $channel;
+
+        /**
+         * CommandsController constructor.
+         */
+        public function __construct()
 		{
 			$this->commands = array('help','time','channel','topic');
 
@@ -18,11 +31,15 @@
 
 		}
 
-		public function anyRouting() {
+        /**
+         * Routing for commands
+         *
+         * @return string
+         */
+        public function anyRouting() {
 				if (Input::get( 'channel' ) == 0) {
 				  return $this->error('Unable to use commands in private chat');
 				}
-
 
 				$command = substr(Input::get('message'), 1);
 				$command = explode(' ',$command,2);
@@ -37,21 +54,38 @@
 				return $this->error('Unknown command');
 		}
 
-		public function error($message) {
+        /**
+         * Error
+         *
+         * @param $message
+         * @return string
+         */
+        public function error($message) {
 			echo $message;
 			return ' ';
 		}
 
-		public function help() {
+        /**
+         * Help
+         */
+        public function help() {
 			$list=implode(" , /",$this->commands);
 			echo 'Available commands for you: /'.$list;
 		}
 
-		public function time() {
+        /**
+         * Time
+         */
+        public function time() {
 			echo 'Current server time is :' .date('l jS \of F Y h:i:s A');
 		}
 
-		public function channel($channelName) {
+        /**
+         * Channel
+         *
+         * @param $channelName
+         */
+        public function channel($channelName) {
 
 			$channel = new Channel();
 			$channel->name = $channelName;
@@ -67,7 +101,12 @@
 			echo 'Channel '. $createdChannelName .' successfully created.';
 		}
 
-		public function topic($topic) {
+        /**
+         * Topic
+         *
+         * @param $topic
+         */
+        public function topic($topic) {
 			$channel = Channel::find(Input::get('channel'));
 			$channel->topic = $topic;
 			$channel->save();
@@ -75,20 +114,4 @@
 			Pusherer::trigger($this->channel,'topic-update', array('status' => $status));
 			echo 'Topic successfully changed.';
 		}
-
-		public function getIndex()
-		{
-			//
-		}
-
-		public function postProfile()
-		{
-			//
-		}
-
-		public function anyLogin()
-		{
-			//
-		}
-
 	}

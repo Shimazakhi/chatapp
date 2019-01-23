@@ -12,7 +12,7 @@
 		 */
 		public function up()
 		{
-			Schema::create('Channels', function(Blueprint $table)
+			Schema::create('channels', function(Blueprint $table)
 			{
 				$table->increments('id');
 				$table->string('name','100')->unique();
@@ -28,7 +28,7 @@
 		 */
 		public function down()
 		{
-			Schema::table('Channels', function(Blueprint $table)
+			Schema::table('channels', function(Blueprint $table)
 			{
 				Schema::drop('Channels');
 			});

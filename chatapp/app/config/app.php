@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://chatapp.shms.space',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,9 +78,8 @@ return array(
 	|
 	*/
 
-	'key' => 'yAQ3EiB3vSsxf9vEiyyVXmJIdnvR3Eyi',
-
-	'cipher' => MCRYPT_RIJNDAEL_128,
+	'key' => '1D^Tub7W5WdZiS@S',
+	'cipher' => 'AES-128-CBC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -94,7 +93,6 @@ return array(
 	*/
 
 	'providers' => array(
-
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
@@ -103,7 +101,6 @@ return array(
 		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
-		'Illuminate\Encryption\EncryptionServiceProvider',
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
@@ -124,7 +121,7 @@ return array(
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'BrainSocket\BrainSocketServiceProvider',
 		'Artdarek\Pusherer\PushererServiceProvider',
-
+        \Tomgrohl\Laravel\Encryption\EncryptionServiceProvider::class
 	),
 
 	/*

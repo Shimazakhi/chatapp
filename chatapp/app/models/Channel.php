@@ -1,10 +1,18 @@
 <?php
 
-	class Channel extends Eloquent {
+    /**
+     * Class Channel
+     */
+    class Channel extends Eloquent {
 
-		public function message()
+        /**
+         * Has Many Messages
+         *
+         * @return \Illuminate\Database\Eloquent\Relations\HasMany
+         */
+        public function message()
 		{
-			return $this->hasOne('App\Message');
+			return $this->hasMany('App\Message');
 		}
 
 	}

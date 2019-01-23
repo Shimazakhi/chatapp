@@ -10,28 +10,28 @@ class Encrypter {
 	 *
 	 * @var string
 	 */
-	protected $key;
+	protected $key = '6060B4084967CEA387774B2017B33CBE09DC32CDE4AE5BE0';
 
 	/**
 	 * The algorithm used for encryption.
 	 *
 	 * @var string
 	 */
-	protected $cipher = MCRYPT_RIJNDAEL_128;
+	protected $cipher = 'AES-256-CBC';
 
 	/**
 	 * The mode used for encryption.
 	 *
 	 * @var string
 	 */
-	protected $mode = MCRYPT_MODE_CBC;
+	protected $mode = 'AES-MODE-CBC';
 
 	/**
 	 * The block size of the cipher.
 	 *
 	 * @var int
 	 */
-	protected $block = 16;
+	protected $block = 32;
 
 	/**
 	 * Create a new encrypter instance.

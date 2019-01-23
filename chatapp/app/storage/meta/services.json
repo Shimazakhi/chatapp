@@ -8,7 +8,6 @@
         "Illuminate\\Routing\\ControllerServiceProvider",
         "Illuminate\\Cookie\\CookieServiceProvider",
         "Illuminate\\Database\\DatabaseServiceProvider",
-        "Illuminate\\Encryption\\EncryptionServiceProvider",
         "Illuminate\\Filesystem\\FilesystemServiceProvider",
         "Illuminate\\Hashing\\HashServiceProvider",
         "Illuminate\\Html\\HtmlServiceProvider",
@@ -28,18 +27,19 @@
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
         "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
         "BrainSocket\\BrainSocketServiceProvider",
-        "Artdarek\\Pusherer\\PushererServiceProvider"
+        "Artdarek\\Pusherer\\PushererServiceProvider",
+        "Tomgrohl\\Laravel\\Encryption\\EncryptionServiceProvider"
     ],
     "eager": [
         "Illuminate\\Cookie\\CookieServiceProvider",
         "Illuminate\\Database\\DatabaseServiceProvider",
-        "Illuminate\\Encryption\\EncryptionServiceProvider",
         "Illuminate\\Filesystem\\FilesystemServiceProvider",
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
         "BrainSocket\\BrainSocketServiceProvider",
-        "Artdarek\\Pusherer\\PushererServiceProvider"
+        "Artdarek\\Pusherer\\PushererServiceProvider",
+        "Tomgrohl\\Laravel\\Encryption\\EncryptionServiceProvider"
     ],
     "deferred": {
         "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

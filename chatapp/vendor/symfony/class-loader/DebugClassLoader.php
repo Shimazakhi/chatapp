@@ -11,7 +11,7 @@
 
 namespace Symfony\Component\ClassLoader;
 
-@trigger_error('The '.__NAMESPACE__.'\DebugClassLoader class is deprecated since version 2.4 and will be removed in 3.0. Use the Symfony\Component\Debug\DebugClassLoader class instead.', E_USER_DEPRECATED);
+@trigger_error('The '.__NAMESPACE__.'\DebugClassLoader class is deprecated since Symfony 2.4 and will be removed in 3.0. Use the Symfony\Component\Debug\DebugClassLoader class instead.', E_USER_DEPRECATED);
 
 /**
  * Autoloader checking if the class is really defined in the file found.
@@ -23,8 +23,6 @@ namespace Symfony\Component\ClassLoader;
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Christophe Coevoet <stof@notk.org>
  *
- * @api
- *
  * @deprecated since version 2.4, to be removed in 3.0.
  *             Use {@link \Symfony\Component\Debug\DebugClassLoader} instead.
  */
@@ -33,11 +31,7 @@ class DebugClassLoader
     private $classFinder;
 
     /**
-     * Constructor.
-     *
      * @param object $classFinder
-     *
-     * @api
      */
     public function __construct($classFinder)
     {
@@ -59,7 +53,7 @@ class DebugClassLoader
      */
     public static function enable()
     {
-        if (!is_array($functions = spl_autoload_functions())) {
+        if (!\is_array($functions = spl_autoload_functions())) {
             return;
         }
 
@@ -68,7 +62,7 @@ class DebugClassLoader
         }
 
         foreach ($functions as $function) {
-            if (is_array($function) && !$function[0] instanceof self && method_exists($function[0], 'findFile')) {
+            if (\is_array($function) && !$function[0] instanceof self && method_exists($function[0], 'findFile')) {
                 $function = array(new static($function[0]), 'loadClass');
             }
 
@@ -93,7 +87,7 @@ class DebugClassLoader
      */
     public function findFile($class)
     {
-        return $this->classFinder->findFile($class);
+        return $this->classFinder->findFile($class) ?: null;
     }
 
     /**
@@ -110,7 +104,7 @@ class DebugClassLoader
         if ($file = $this->classFinder->findFile($class)) {
             require $file;
 
-            if (!class_exists($class, false) && !interface_exists($class, false) && (!function_exists('trait_exists') || !trait_exists($class, false))) {
+            if (!class_exists($class, false) && !interface_exists($class, false) && (!\function_exists('trait_exists') || !trait_exists($class, false))) {
                 if (false !== strpos($class, '/')) {
                     throw new \RuntimeException(sprintf('Trying to autoload a class with an invalid name "%s". Be careful that the namespace separator is "\" in PHP, not "/".', $class));
                 }
