@@ -3,7 +3,7 @@
 Laravel 4 Application with Socket Implementation
 
 
-Live Example: http://chattie.shms.space/
+Live Example: http://chatapp.shms.space/
 
 Allows users to register, login, create channels, send private or public (channel) messages.
 Realtime implementation using Socket & Pusher
